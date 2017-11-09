@@ -13,16 +13,14 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	
 	// Update is called once per frame
 	void Update () {
-      //  Button btn = button.GetComponent<Button>();
-      //  btn.onClick.AddListener(TaskOnClick);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)//Checks whether the mouse is hovering over the button
     {
         
-        ClickingUI.Instance.isClickingButton = true;
+        ClickingUI.Instance.isClickingButton = true;//If they are hovering over it, the ui is not allowed to switch and they can click through the button
     }
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)//Checks whether the mouse is no longer hovering over the button
     {
        
         ClickingUI.Instance.isClickingButton = false;
@@ -33,13 +31,13 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
    public void CreateUnit()
     {
-        ClickingUI.Instance.CreateUnit(ClickingUI.Instance.previousObject);
-      //  ClickingUI.Instance.isClickingButton = true;      
+        UiController.Instance.CreateUnit(ClickingUI.Instance.previousObject);
+    
     }
 
     public void CreateBuilding()
     {
-        ClickingUI.Instance.CreateBuilding();
+        UiController.Instance.CreateBuilding();
     }
 
 
